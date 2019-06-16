@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.23321430607181087 0.9434140512144259 0.2357562627262063 0.7957118968211607
-  position 3.0541643930232754 1.5746182821442118 3.0831448636993732
+  orientation -0.5909897151042538 -0.8063964559481703 -0.021352107044122652 0.4794093793375856
+  position -0.25129289264716964 0.9220351229314382 2.281921910586957
 }
 Floor {
 }
@@ -11,17 +11,24 @@ TexturedBackground {
 }
 TexturedBackgroundLight {
 }
-Solid {
-  translation 0.1982465084399283 0.27 0.1223979143733056
+DEF DEF_FRAME_1 Solid {
+  translation 0 0.3 0
   children [
-    Group {
+    DEF GR_FRAME Group {
       children [
-        Shape {
+        DEF DEF_Cylinder Shape {
+          appearance PBRAppearance {
+            baseColor 0 0 1
+          }
+          geometry Cylinder {
+            height 0.3
+            radius 0.02
+          }
         }
         Transform {
           translation 0 0.15 0
           children [
-            Shape {
+            DEF SH_SPHERE Shape {
               appearance PBRAppearance {
                 baseColor 1 0 0
               }
@@ -31,16 +38,49 @@ Solid {
             }
           ]
         }
+        Transform {
+          translation 0 -0.15 0
+          children [
+            USE SH_SPHERE
+          ]
+        }
+        Transform {
+          translation 0.15 0.15 0
+          rotation 0 0 1 1.5708
+          children [
+            USE DEF_Cylinder
+          ]
+        }
+        Transform {
+          translation 0.3 0.15 0
+          children [
+            USE SH_SPHERE
+          ]
+        }
+        Transform {
+          translation 0.3 0 0
+          children [
+            USE DEF_Cylinder
+          ]
+        }
+        Transform {
+          translation 0.3 -0.15 0
+          children [
+            USE SH_SPHERE
+          ]
+        }
+        Transform {
+          translation 0.15 -0.15 0
+          rotation 0 0 1 -1.5708
+          children [
+            USE DEF_Cylinder
+          ]
+        }
       ]
     }
-    Shape {
-      appearance PBRAppearance {
-        baseColor 0 0 1
-      }
-      geometry Cylinder {
-        height 0.3
-        radius 0.02
-      }
-    }
   ]
+  boundingObject USE GR_FRAME
+}
+Solid {
+  name "solid(1)"
 }
