@@ -2,8 +2,8 @@
 WorldInfo {
 }
 Viewpoint {
-  orientation -0.5909897151042538 -0.8063964559481703 -0.021352107044122652 0.4794093793375856
-  position -0.25129289264716964 0.9220351229314382 2.281921910586957
+  orientation -0.025291741821874568 0.9788727636794343 0.2029000747220216 2.677748747220756
+  position 1.4076108996706835 1.7686464038240035 -3.443317911813704
 }
 Floor {
 }
@@ -82,5 +82,18 @@ DEF DEF_FRAME_1 Solid {
   boundingObject USE GR_FRAME
 }
 Solid {
+  translation 0 0.3 0
+  rotation 0 1 0 1.5708
+  children [
+    USE GR_FRAME
+  ]
   name "solid(1)"
+}
+Solid {
+  translation 0.3 0.3 0
+  rotation 0 1 0 1.5708
+  children [
+    USE GR_FRAME
+  ]
+  name "solid(2)"
 }
